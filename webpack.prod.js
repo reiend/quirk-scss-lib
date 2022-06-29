@@ -1,5 +1,5 @@
 const path = require("path"); /* node path */
-const glob = require("glob-all");
+const glob = require("glob");
 const HtmlWebpackPlugin = require("html-webpack-plugin"); /* for loading / create html */
 const MinicssExtractPlugin = require("mini-css-extract-plugin"); /* extracting css from js*/
 const PurgecssPlugin = require("purgecss-webpack-plugin"); /* for cleaning unused style */
@@ -101,7 +101,7 @@ module.exports = {
   plugins: [
     // create root html
     new HtmlWebpackPlugin({
-      title: "typescript-projec-template",
+      title: "quirk-scss-lib",
       filename: "index.html",
     }),
     // new Dotenv(),
@@ -111,10 +111,7 @@ module.exports = {
     }),
     // unused style clean up
     new PurgecssPlugin({
-      paths: [
-        path.appHtml,
-        ...glob.sync(`${ROOT_PATH.src}/**/*`, { nodir: true }),
-      ],
+      paths: glob.sync(`${ROOT_PATH.src}/**/*`, { nodir: true }),
     }),
   ],
 

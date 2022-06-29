@@ -102,7 +102,7 @@ module.exports = {
   plugins: [
     // create root html
     new HtmlWebpackPlugin({
-      title: "typescript-projec-template",
+      title: "quirk-scss-lib",
       filename: "index.html",
     }),
     // new Dotenv(),
